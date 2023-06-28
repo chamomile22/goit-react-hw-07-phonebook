@@ -8,9 +8,9 @@ import {
   BtnSubmit,
 } from './Form.styled';
 import { nanoid } from 'nanoid';
-import { addContact } from 'redux/contactsSlice';
 import { selectContacts } from 'redux/selectors';
 import { toast } from 'react-toastify';
+import { addContactThunk } from 'redux/operations';
 
 export const Form = () => {
   const [name, setName] = useState('');
@@ -53,7 +53,7 @@ export const Form = () => {
       name,
       number,
     };
-    dispatch(addContact(contact));
+    dispatch(addContactThunk(contact));
 
     reset();
   };
